@@ -7,8 +7,8 @@
 // Forward declare the function  
 extern "C" void DeviceInfo();
 extern "C" void CircleFitG(double X[HIT], double Y[HIT], double Z[HIT], double Zerr[HIT], double *Mx, double *My, double *M0, double *result);
-extern "C" void CircleFitGAllD(double X[TRK*HIT], double Y[TRK*HIT], double Z[TRK*HIT], double Zerr[TRK*HIT], double Mx[TRK], double My[TRK], double M0[TRK], double result[TRK * 8]);
-extern "C" void CircleFitGF(float X[HIT], float Y[HIT], float Z[HIT], float Zerr[HIT], float *Mx, float *My, float *M0, float *result);
+//extern "C" void CircleFitGAllD(double X[TRK*HIT], double Y[TRK*HIT], double Z[TRK*HIT], double Zerr[TRK*HIT], double Mx[TRK], double My[TRK], double M0[TRK], double result[TRK * 8]);
+//extern "C" void CircleFitGF(float X[HIT], float Y[HIT], float Z[HIT], float Zerr[HIT], float *Mx, float *My, float *M0, float *result);
 //extern "C" void runTest(int argc);
 
 int main(int argc, char **argv)
