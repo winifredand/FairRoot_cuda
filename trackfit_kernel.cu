@@ -209,7 +209,7 @@ Fit(double *X, double *Y, double *Z1, double *Z1err, double *Mx, double *My, dou
 
 }
 
-
+/*
 inline __device__ int NewtonF(float Mxx, float Myy, float Mxy, float Mxz, float Myz, float Mzz, float *result)
 
 {
@@ -819,3 +819,4 @@ FitAllD(double *X, double *Y, double *Z1, double *Z1err, double *Mx, double *My,
 
 
 #endif // #ifndef _TRACKFIT_KERNEL_H_ 
+*/
