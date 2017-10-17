@@ -58,22 +58,22 @@ extern "C" void CircleFitG(double X[HIT], double Y[HIT], double Z[HIT], double Z
 	dim3 dimBlock2(HIT, 1);// HIT=20,此句表示每个block有20个线程；
 	dim3 dimGrid2(1, 1); //表示1*1个block；
 
-	/////////时间函数///////////
+/*	/////////时间函数///////////
 	cudaEvent_t start, stop;
 	float time_kernel;
-	checkCudaErrors(cudaEventRecord(start, 0));//开始计时；
+	checkCudaErrors(cudaEventRecord(start, 0));//开始计时；*/
 
 	///////调用内核函数进行计算////////////////
 	Fit <<< dimGrid2, dimBlock2 >>> (d_X, d_Y, d_Z, d_Zerr, d_Mx, d_My, d_MO, d_result);
 
-	checkCudaErrors(cudaEventRecord(stop, 0));//结束计时；
+/*	checkCudaErrors(cudaEventRecord(stop, 0));//结束计时；
 	checkCudaErrors(cudaEventSynchronize(start));
 	checkCudaErrors(cudaEventSynchronize(stop));
 
 	checkCudaErrors(cudaEventElapsedTime(&time_kernel, start, stop));//计算时间差；
 
 	checkCudaErrors(cudaEventDestroy(start));//destory the event
-	checkCudaErrors(cudaEventDestroy(stop));
+	checkCudaErrors(cudaEventDestroy(stop));*/
 
 	printf("Fit的核函数kernel运行时间:\t\t%.2f\n", time_kernel);//输出内核函数运行时间；
 
@@ -97,7 +97,7 @@ Error:
 }
 
 
-
+/*
 extern "C" void CircleFitGAllD(double X[TRK*HIT], double Y[TRK*HIT], double Z[TRK*HIT], double Zerr[TRK*HIT], double Mx[TRK], double My[TRK], double M0[TRK], double result[TRK * 8])
 {
 	double *d_X;
@@ -120,7 +120,7 @@ extern "C" void CircleFitGAllD(double X[TRK*HIT], double Y[TRK*HIT], double Z[TR
 
 	/*   result[0]=1;
 	result[1]=1;
-	result[2]=1;*/
+	result[2]=1;*//*
 
 	size_t size = sizeof(double);
 	//allocate memory for arrays on device 
@@ -189,9 +189,9 @@ Error:
 	checkCudaErrors(cudaFree(d_M0));
 	checkCudaErrors(cudaFree(d_result));
 }
+*/
 
-
-
+/*
 extern "C" void CircleFitGAllF(float X[TRK*HIT], float Y[TRK*HIT], float Z[TRK*HIT], float Zerr[TRK*HIT], float Mx[TRK], float My[TRK], float M0[TRK], float result[8 * TRK])
 {
 	float *d_X;
@@ -203,9 +203,9 @@ extern "C" void CircleFitGAllF(float X[TRK*HIT], float Y[TRK*HIT], float Z[TRK*H
 	float *d_M0;
 	float *d_result;
 
-	/*   result[0]=1;
+	*//*   result[0]=1;
 	result[1]=1;
-	result[2]=1;*/
+	result[2]=1;
 
 	cudaError_t cudaStatus;
 	cudaStatus = cudaSetDevice(0);
@@ -352,3 +352,4 @@ Error:
 	checkCudaErrors(cudaFree(d_M0));
 	checkCudaErrors(cudaFree(d_result));
 }
+*/
